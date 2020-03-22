@@ -1,3 +1,8 @@
 # wirvsvirus-coronaq-api
 
-tbd
+## Todos
+
+* Typings
+* Refactoring of searchDocumentsHandler
+* so much more
+
