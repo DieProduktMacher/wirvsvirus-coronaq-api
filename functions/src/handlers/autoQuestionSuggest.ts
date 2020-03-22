@@ -70,8 +70,11 @@ const autoQuestionSuggestHandler =  async (req: functions.https.Request, res: fu
       .then((response: any) => {
         console.log('response', JSON.stringify(response));
 
-        const suggestedQuestions: string[] = response.suggest.questions[0].options.map((entry: any): string => {
-          return `${entry._source.question['de'].replace('\n', ' ')}`;
+        const suggestedQuestions: string[] = response.suggest.questions[0].options.map((entry: any): object => {
+          return {
+            id: entry._id,
+            question: `${entry._source.question['de'].replace('\n', ' ')}`
+          };
         });
 
         return res.send({ data: suggestedQuestions });
