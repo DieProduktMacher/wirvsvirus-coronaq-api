@@ -71,7 +71,7 @@ const autoQuestionSuggestHandler =  async (req: functions.https.Request, res: fu
         console.log('response', JSON.stringify(response));
 
         const suggestedQuestions: string[] = response.suggest.questions[0].options.map((entry: any): string => {
-          return entry.text;
+          return `${entry.text}…`;
         });
         return res.send({ data: suggestedQuestions });
       })
