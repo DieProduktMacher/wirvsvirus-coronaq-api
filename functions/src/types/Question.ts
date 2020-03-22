@@ -1,23 +1,23 @@
 declare interface Question {
   answer: {
-    de: String
+    de: string
   },
-  answeredAt: String
-  answeredById: String
-  authoredAt: String
-  authoredById: String
-  countryCode: String
+  answeredAt: string
+  answeredById: string
+  authoredAt: string
+  authoredById: string
+  countryCode: string
   question:  {
-    de: String
+    de: string
   },
-  region: String
-  sourceTitle: String
-  sourceUrl: String
-  state: String
-  subscriberIds: String[]
-  tags: String[]
-  topic: String
-  validFrom: String
-  validTo: String
+  region: string
+  sourceTitle: string
+  sourceUrl: string
+  state: string
+  subscriberIds: string[]
+  tags: string[]
+  topic: string
+  validFrom: string
+  validTo: string
 
 }

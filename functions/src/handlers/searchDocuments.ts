@@ -185,7 +185,7 @@ const searchDocumentsHandler = (db: any) => {
           return getQuestionData(hit._id);
         }))
           .then((responses: any) => {
-            const questions = responses.map((hit: any) => {
+            const questions = responses.map((hit: any): SearchQueryResult => {
               const questionId: string = hit.id;
               const question: Question = hit.data();
 
@@ -193,12 +193,14 @@ const searchDocumentsHandler = (db: any) => {
                 return tmpHit._id === questionId;
               });
 
+              const score: number = (elasticHit && elasticHit.length && elasticHit[0] && elasticHit[0]._score) ? elasticHit[0]._score : 1;
+
               return {
                 data: question,
                 ref: db.collection('question').doc(questionId),
-                meta: (elasticHit && elasticHit.length) ? {
-                  score: elasticHit[0] && elasticHit[0]._score ? elasticHit[0]._score : 1
-                } : null
+                meta: {
+                  score: score
+                }
               };
             });
 

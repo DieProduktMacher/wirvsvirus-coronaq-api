@@ -1,12 +1,8 @@
 declare interface SearchQuery {
-  authoredAt: String
-	authoredById: String
+  authoredAt: string
+	authoredById: string
 	query: {
 		[key: string]: any
 	},
-	results?: {
-		questions: Question[]
-		total: Number
-	}
-
+	results?: SearchQueryResult[]
 }

@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - 10
+branches:
+  only:
+    - master
+script:
+  - cd functions
+  - npm install
+  - npm run lint
+  - npm run build
+  - cd ..
+deploy:
+  provider: firebase
+  token:
+    secure: 'your encrypted firebase token'
+  skip_cleanup: true
