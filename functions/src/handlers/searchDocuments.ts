@@ -159,15 +159,6 @@ const searchDocumentsHandler = (db: any) => {
       });
     }
 
-    // Cleanup request object
-    if (elasticRequest.body.query.bool.must.length === 0) {
-      delete elasticRequest.body.query.bool.must;
-    }
-
-    if (elasticRequest.body.query.bool.should.length === 0) {
-      delete elasticRequest.body.query.bool.should;
-    }
-
     // Get Documents from FireStore
     async function getQuestionData(questionId: string) {
       return db.collection('questions').doc(questionId).get();
