@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 
 // Function handlers
+import { autoQuestionSuggestHandler } from './handlers/autoQuestionSuggest';
 import { importSpreadsheetHandler } from './handlers/importSpreadsheet';
 import { indexQuestionHandler } from './handlers/indexQuestion';
 import { searchDocumentsHandler } from './handlers/searchDocuments';
@@ -18,6 +19,11 @@ export const indexQuestion = functions.region('europe-west2').firestore.document
  * Imports data from Google spreadsheet to firebase collection "questions"
  */
 export const importSpreadsheet = functions.region('europe-west2').https.onCall(importSpreadsheetHandler(db));
+
+/*
+ * Get auto suggest for question queries
+ */
+export const autoQuestionSuggest = functions.region('europe-west2').https.onCall(autoQuestionSuggestHandler);
 
 /*
  * Listens to new documents in firebase collection "search-queries",
