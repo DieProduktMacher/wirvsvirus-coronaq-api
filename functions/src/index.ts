@@ -23,7 +23,8 @@ export const importSpreadsheet = functions.region('europe-west2').https.onCall(i
 /*
  * Get auto suggest for question queries
  */
-export const autoQuestionSuggest = functions.region('europe-west2').https.onCall(autoQuestionSuggestHandler);
+// export const autoQuestionSuggest = functions.region('europe-west2').https.onCall(autoQuestionSuggestHandler);
+export const autoQuestionSuggest = functions.https.onRequest(autoQuestionSuggestHandler);
 
 /*
  * Listens to new documents in firebase collection "search-queries",
