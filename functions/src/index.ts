@@ -5,6 +5,10 @@ import { importSpreadsheetHandler } from './handlers/importSpreadsheet';
 import { indexQuestionHandler } from './handlers/indexQuestion';
 import { searchDocumentsHandler } from './handlers/searchDocuments';
 
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
+const db = admin.firestore();
+
 /*
  * Receives updated data from firebase collection "questions" and updates elastic
  */
@@ -13,7 +17,7 @@ export const indexQuestion = functions.region('europe-west2').firestore.document
 /*
  * Imports data from Google spreadsheet to firebase collection "questions"
  */
-export const importSpreadsheet = functions.region('europe-west2').https.onCall(importSpreadsheetHandler);
+export const importSpreadsheet = functions.region('europe-west2').https.onCall(importSpreadsheetHandler(db));
 
 /*
  * Listens to new documents in firebase collection "search-queries",
@@ -21,4 +25,4 @@ export const importSpreadsheet = functions.region('europe-west2').https.onCall(i
  */
 // Enable for easier testing
 // export const searchDocumentsHandler = functions.region('europe-west2').firestore.document('search-queries/{queryId}').onWrite((change: any) => {
-  export const searchDocuments = functions.region('europe-west2').firestore.document('search-queries/{queryId}').onCreate(searchDocumentsHandler);
+  export const searchDocuments = functions.region('europe-west2').firestore.document('search-queries/{queryId}').onCreate(searchDocumentsHandler(db));

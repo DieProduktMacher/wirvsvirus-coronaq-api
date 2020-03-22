@@ -1,4 +1,5 @@
 import * as functions from 'firebase-functions';
+import * as _ from 'lodash';
 const curl = require('request-promise-native');
 
 const indexQuestionHandler = (change: any) => {
