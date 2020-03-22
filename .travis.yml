@@ -7,8 +7,6 @@ branches:
 script:
 - cd functions
 - npm install
-- npm run lint
-- npm run build
 - npm i -g tslint typescript
 - cd ..
 env:
