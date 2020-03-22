@@ -5,10 +5,7 @@ branches:
   only:
   - master
 script:
-- cd functions
-- npm install
-- npm i -g tslint typescript
-- cd ..
+-
 env:
   - NODE_ENV=development
 deploy:
