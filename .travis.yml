@@ -6,6 +6,9 @@ branches:
   - master
 script:
 - npm install -g npm
+- cd functions
+- npm install
+- cd ..
 env:
   - NODE_ENV=development
 deploy:
