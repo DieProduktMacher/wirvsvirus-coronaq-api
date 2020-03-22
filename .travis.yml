@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-  - 10
+- 10
 branches:
   only:
-    - master
+  - master
 script:
-  - cd functions
-  - npm install
-  - npm run lint
-  - npm run build
-  - cd ..
+- cd functions
+- npm install
+- npm run lint
+- npm run build
+- cd ..
 deploy:
   provider: firebase
   token:
-    secure: 'your encrypted firebase token'
+    secure: fJaMXV0Lq5TnnqsofMsClvBBSkg2y8AFfSZQ7A1bqoPSSLrG6w6TNEbq+47kmGx1Or692Dm7r1Mych9HNKQ9fk1UsV7Zj383l7wAVYpR8AliOorCv/58FL8p8zGtibWHvnf+p8PnqiSC0t7vO5FQ5i9FPVFwdOm260Nx/y75rz9JSF6XiCsmyHaiaD4n/mppik1U/v3+EzkG9NntmfLA6J5C+ND9Grm1EhRcVdZbOmP778faFCZPWqLTG5wpRUZt8W5sI/ayLRKf+XvZSnZHq2NQTnETxfabW/+np2+hZLMwepprK/fSwwdCOaDPW5Ga3+wgd6LM95fMVIDsurkOjbknoumQ+gcCvQ4K6nhd/MXK+cmvojngctDyTqLuoPlrs1gejjPzFXQuhRWbhHlssbbSokkI9rBidoAZ5PxT6kRsIMrTch3yjscD0xakHxXzSwqWdgOmHfWBIIgGJKqBE9+vC/UdtEhfkJrwZ3XrojWC32vcmOkxqpTHRWXHuQHN7Au2ecInpe93vuMEouXe15MYFJsYEADQxnfnY2bMlMNNQxA4U5qmGn7P66255OSrwud7lPlw8CDvxFurr5hkIqKZIoPKnwMQYGJ4rRwoV1mJ3IDE0fUemNkRFBq3LDQ8FmEhRlD/Q+NPtvnVVUt5VfR9gx8JnHMrMZ01c/KaJbo=
   skip_cleanup: true
